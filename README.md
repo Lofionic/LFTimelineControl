@@ -8,16 +8,23 @@
 ## Description
 LFTimelineControl is a custom UIKit control designed primarily to be used as a timeline scrubber for tempo-based audio.
 
-The timeline is displayed with demarkations of beats and bars, bars are numbered. 
+The timeline is displayed with demarkations of beats and bars, bars are numbered. Scrolling is infinite.
 
 The timeline supports inertial scrolling, and deceleration will always come to rest on a bar marker. Panning will also snap to a the closest bar marker when completed.
 
 ## Dependancies
-LFTimelineControl has a dependancy on a the '*Pop*' animation library.
+LFTimelineControl is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'LFTimelineControl'
+```
+
+**Important**: LFTimelineControl has a dependancy on a the '*Pop*' animation library.
 
 For the deceleration snapping to work, a forked version of the '*Pop*' library must be used. The fork is hosted [here](https://github.com/Lofionic/pop/tree/).
 
-This external source dependency should be added to your podfile:
+This external source dependency should be added to your podfile, *before* running `pod install`:
 ```ruby 
 pod 'pop', :git => 'https://github.com/lofionic/pop.git', :branch => 'dev'
 ```

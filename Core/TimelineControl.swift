@@ -65,7 +65,7 @@ public final class TimelineControl: UIControl {
     
     private func setup() {
         layer.contentsScale = UIScreen.main.scale
-        layer.cornerRadius = TimelineControl.cornerRadius
+        layer.cornerRadius = Self.cornerRadius
         
         layer.shadowColor = Colors.black.cgColor
         layer.shadowOpacity = 0.2
@@ -90,12 +90,12 @@ public final class TimelineControl: UIControl {
         
         if let property = POPAnimatableProperty.property(withName: "location", initializer: { property in
             property?.readBlock = { base, values in
-                guard let base = base as? TimelineControl, let values = values else { return }
+                guard let base = base as? Self, let values = values else { return }
                 values[0] = base.location
             }
             
             property?.writeBlock = { base, values in
-                guard let base = base as? TimelineControl, let values = values else { return }
+                guard let base = base as? Self, let values = values else { return }
                 base.location = max(values[0], 0)
             }
                     
@@ -187,9 +187,10 @@ public final class TimelineControl: UIControl {
         override func draw(in ctx: CGContext) {
             super.draw(in: ctx)
             let backgroundPath = CGMutablePath()
-            backgroundPath.addRoundedRect(in: bounds,
-                                          cornerWidth: TimelineControl.cornerRadius,
-                                          cornerHeight: TimelineControl.cornerRadius)
+            backgroundPath.addRoundedRect(
+                in: bounds,
+                cornerWidth: TimelineControl.cornerRadius,
+                cornerHeight: TimelineControl.cornerRadius)
             
             ctx.setFillColor(Colors.offWhite.cgColor)
             ctx.addPath(backgroundPath)
@@ -202,10 +203,11 @@ public final class TimelineControl: UIControl {
             super.draw(in: ctx)
             
             let needleWidth: CGFloat = 3.0
-            let needleRect = CGRect(x: bounds.midX - (needleWidth / 2.0),
-                                    y: 0,
-                                    width: needleWidth,
-                                    height: bounds.height)
+            let needleRect = CGRect(
+                x: bounds.midX - (needleWidth / 2.0),
+                y: 0,
+                width: needleWidth,
+                height: bounds.height)
             
             ctx.setFillColor(Colors.red.cgColor)
             ctx.fill(needleRect)
@@ -216,9 +218,10 @@ public final class TimelineControl: UIControl {
         override func draw(in ctx: CGContext) {
             super.draw(in: ctx)
             let backgroundPath = CGMutablePath()
-            backgroundPath.addRoundedRect(in: bounds,
-                                          cornerWidth: TimelineControl.cornerRadius,
-                                          cornerHeight: TimelineControl.cornerRadius)
+            backgroundPath.addRoundedRect(
+                in: bounds,
+                cornerWidth: TimelineControl.cornerRadius,
+                cornerHeight: TimelineControl.cornerRadius)
             
             ctx.setStrokeColor(Colors.offBlack.cgColor)
             ctx.setLineWidth(2)
