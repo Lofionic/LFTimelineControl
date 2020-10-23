@@ -28,15 +28,10 @@ This external source dependency should be added to your podfile, *before* runnin
 ```ruby 
 pod 'pop', :git => 'https://github.com/lofionic/pop.git', :branch => 'dev'
 ```
-
-<!-- ## Installation
-
-TimelineControl is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'TimelineControl'
-``` -->
+## TODOs
+- Add usage documentation
+- Add unit tests
+- Improve example app
 
 ## Author
 Chris Rivers, chris@lofionic.co.uk
