@@ -1,9 +1,9 @@
 # LFTimelineControl
 
-<!-- [![CI Status](https://img.shields.io/travis/Chris/LofiUI.svg?style=flat)](https://travis-ci.org/Chris/LFTimeline)
-[![Version](https://img.shields.io/cocoapods/v/LofiUI.svg?style=flat)](https://cocoapods.org/pods/LFTimeline)
-[![License](https://img.shields.io/cocoapods/l/LofiUI.svg?style=flat)](https://cocoapods.org/pods/LFTimeline)
-[![Platform](https://img.shields.io/cocoapods/p/LofiUI.svg?style=flat)](https://cocoapods.org/pods/LFTimeline) -->
+<!-- [![CI Status](https://img.shields.io/travis/Chris/LFTimelineControl.svg?style=flat)](https://travis-ci.org/Chris/LFTimelineControl) -->
+[![Version](https://img.shields.io/cocoapods/v/LFTimelineControl.svg?style=flat)](https://cocoapods.org/pods/LFTimelineControl)
+[![License](https://img.shields.io/cocoapods/l/LFTimelineControl.svg?style=flat)](https://cocoapods.org/pods/LFTimelineControl)
+[![Platform](https://img.shields.io/cocoapods/p/LFTimelineControl.svg?style=flat)](https://cocoapods.org/pods/LFTimelineControl)
 
 ## Description
 LFTimelineControl is a custom UIKit control designed primarily to be used as a timeline scrubber for tempo-based audio.
