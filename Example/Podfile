@@ -1,0 +1,16 @@
+platform :ios, '10.0'
+
+target 'LFTimelineControl-example' do
+  use_frameworks!
+  
+  pod 'LFTimelineControl', :path => '../'
+  pod 'pop', :git => 'https://github.com/lofionic/pop.git', :branch => 'dev'
+  
+  target 'LFTimelineControlTests' do
+    inherit! :search_paths
+  end
+
+  target 'LFTimelineControlUITests' do
+  end
+
+end

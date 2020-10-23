@@ -1,0 +1,30 @@
+PODS:
+  - LFTimelineControl (0.1.0):
+    - LFTimelineControl/Core (= 0.1.0)
+  - LFTimelineControl/Core (0.1.0):
+    - pop
+  - pop (1.0.11)
+
+DEPENDENCIES:
+  - LFTimelineControl (from `../`)
+  - pop (from `https://github.com/lofionic/pop.git`, branch `dev`)
+
+EXTERNAL SOURCES:
+  LFTimelineControl:
+    :path: "../"
+  pop:
+    :branch: dev
+    :git: https://github.com/lofionic/pop.git
+
+CHECKOUT OPTIONS:
+  pop:
+    :commit: b5d3f298dad8eadc7eedb27b0d271dc3da50a86a
+    :git: https://github.com/lofionic/pop.git
+
+SPEC CHECKSUMS:
+  LFTimelineControl: e6373a4f6c792d947fae3efd0aa6a3d68174b2f7
+  pop: ae3ae187018759968252242e175c21f7f9be5dd2
+
+PODFILE CHECKSUM: 1b27675f8345dedb96344fee59ed65a60c11f79e
+
+COCOAPODS: 1.8.4

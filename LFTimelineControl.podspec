@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.framework = 'UIKit'
     core.dependency 'pop'
-    core.source_files = 'Core/**/*.swift'
+    core.source_files = 'LFTimelineControl/Core/**/*.swift'
   end
 end
