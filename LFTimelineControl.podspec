@@ -15,7 +15,8 @@ Pod::Spec.new do |s|
   
   s.subspec 'Core' do |core|
     core.framework = 'UIKit'
-    core.dependency 'pop'
-    core.source_files = 'LFTimelineControl/Core/**/*.swift'
+    core.dependency 'pop', '~> 1.0.11'
+    core.source_files = 'LFTimelineControl/Core/**/*.{swift,mm,h}'
+    core.private_header_files = 'LFTimelineControl/Core/**/LFDecayAnimationInternal.h'
   end
 end

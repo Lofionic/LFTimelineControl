@@ -20,19 +20,6 @@ it, simply add the following line to your Podfile:
 pod 'LFTimelineControl'
 ```
 
-**Important**: LFTimelineControl has a dependancy on a the '*Pop*' animation library.
-
-For the deceleration snapping to work, a forked version of the '*Pop*' library must be used. The fork is hosted [here](https://github.com/Lofionic/pop/tree/).
-
-This external source dependency should be added to your podfile, *before* running `pod install`:
-```ruby 
-pod 'pop', :git => 'https://github.com/lofionic/pop.git', :branch => 'dev'
-```
-## TODOs
-- Add usage documentation
-- Add unit tests
-- Improve example app
-
 ## Author
 Chris Rivers, chris@lofionic.co.uk
 

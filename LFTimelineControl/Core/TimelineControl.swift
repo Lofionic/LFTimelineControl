@@ -34,7 +34,7 @@ public final class TimelineControl: UIControl {
     
     private var locationProperty: POPAnimatableProperty!
     
-    private var decayAnimation: POPDecayAnimation!
+    private var decayAnimation: LFDecayAnimation!
 
     private(set) dynamic var location: CGFloat = 0.0 {
         didSet {
@@ -102,7 +102,6 @@ public final class TimelineControl: UIControl {
     }
     
     @objc func didPan(panGesture: UIPanGestureRecognizer) {
-        
         switch panGesture.state {
         case .began:
             isScrubbing = true
@@ -112,7 +111,7 @@ public final class TimelineControl: UIControl {
             location = max(location - delta, 0)
             panGesture.setTranslation(.zero, in: self)
         case .ended:
-            decayAnimation = POPDecayAnimation()
+            decayAnimation = LFDecayAnimation()
             decayAnimation.property = locationProperty
             decayAnimation.fromValue = location
             
