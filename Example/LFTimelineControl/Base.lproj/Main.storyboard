@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsr-tF-ubb" customClass="TimelineControl" customModule="LFTimelineControl">
-                                <rect key="frame" x="20" y="812" width="374" height="50"/>
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FzO-Qn-dZ1"/>
@@ -29,7 +29,7 @@
                         <constraints>
                             <constraint firstItem="jsr-tF-ubb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="VdT-Bv-uLg"/>
                             <constraint firstItem="jsr-tF-ubb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="agE-SQ-OnV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jsr-tF-ubb" secondAttribute="bottom" id="hYv-Hz-dza"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jsr-tF-ubb" secondAttribute="bottom" constant="20" id="hYv-Hz-dza"/>
                         </constraints>
                     </view>
                 </viewController>
