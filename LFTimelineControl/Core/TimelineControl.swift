@@ -130,7 +130,7 @@ public final class TimelineControl: UIControl {
                 }
                 pop_add(decayAnimation, forKey: "decay")
             } else {
-                setLocation(floor(location), animated: true)
+                setLocation(round(location), animated: true)
                 sendActions(for: .valueChanged)
             }
             
