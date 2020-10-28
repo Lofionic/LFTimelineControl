@@ -8,23 +8,7 @@ import pop
 
 public final class TimelineControl: UIControl {
     
-    private static let cornerRadius: CGFloat = 0
-    
-    private let backgroundLayer = BackgroundLayer()
-    private let timelineLayer = TimelineLayer()
-    private let needleLayer = NeedleLayer()
-    private let borderLayer = BorderLayer()
-    
-    let snapResolution: CGFloat = 1.0
-
-    private var locationProperty: POPAnimatableProperty!
-
-    private(set) dynamic var location: CGFloat = 0.0 {
-        didSet {
-            timelineLayer.location = location
-        }
-    }
-    
+    /// The space between bar markers, in points.
     public dynamic var divisionWidth: CGFloat = 50.0 {
         didSet {
             let animation = CABasicAnimation(keyPath: #keyPath(TimelineLayer.divisionWidth))
@@ -37,12 +21,27 @@ public final class TimelineControl: UIControl {
         }
     }
     
-    public dynamic var divisionCount: Int = 4 {
+    /// Number of divisions between bar markers.
+    public dynamic var divisionCount: Int = 3 {
         didSet {
             timelineLayer.divisionCount = divisionCount
         }
     }
+        
+    private let backgroundLayer = BackgroundLayer()
+    private let timelineLayer = TimelineLayer()
+    private let needleLayer = NeedleLayer()
     
+    private var locationProperty: POPAnimatableProperty!
+    
+    private var decayAnimation: POPDecayAnimation!
+
+    private(set) dynamic var location: CGFloat = 0.0 {
+        didSet {
+            timelineLayer.location = location
+        }
+    }
+        
     private var isScrubbing: Bool = false {
         didSet {
             timelineLayer.isScrubbing = isScrubbing
@@ -50,7 +49,6 @@ public final class TimelineControl: UIControl {
     }
     
     private var startTouchLocation: CGFloat?
-    
     private var touchVelocity: CGFloat?
     
     override init(frame: CGRect) {
@@ -65,7 +63,6 @@ public final class TimelineControl: UIControl {
     
     private func setup() {
         layer.contentsScale = UIScreen.main.scale
-        layer.cornerRadius = Self.cornerRadius
         
         layer.shadowColor = Colors.black.cgColor
         layer.shadowOpacity = 0.2
@@ -75,7 +72,6 @@ public final class TimelineControl: UIControl {
         layer.addSublayer(backgroundLayer)
         backgroundLayer.addSublayer(timelineLayer)
         backgroundLayer.addSublayer(needleLayer)
-        backgroundLayer.addSublayer(borderLayer)
         
         timelineLayer.location = location
         timelineLayer.divisionWidth = divisionWidth
@@ -104,8 +100,6 @@ public final class TimelineControl: UIControl {
             locationProperty = property
         }
     }
-    
-    var decayAnimation: POPDecayAnimation!
     
     @objc func didPan(panGesture: UIPanGestureRecognizer) {
         
@@ -152,7 +146,6 @@ public final class TimelineControl: UIControl {
             backgroundLayer.frame = self.bounds
             timelineLayer.frame = self.bounds
             needleLayer.frame = self.bounds
-            borderLayer.frame = self.bounds
         }
     }
     
@@ -187,10 +180,7 @@ public final class TimelineControl: UIControl {
         override func draw(in ctx: CGContext) {
             super.draw(in: ctx)
             let backgroundPath = CGMutablePath()
-            backgroundPath.addRoundedRect(
-                in: bounds,
-                cornerWidth: TimelineControl.cornerRadius,
-                cornerHeight: TimelineControl.cornerRadius)
+            backgroundPath.addRect(bounds)
             
             ctx.setFillColor(Colors.offWhite.cgColor)
             ctx.addPath(backgroundPath)
@@ -211,22 +201,6 @@ public final class TimelineControl: UIControl {
             
             ctx.setFillColor(Colors.red.cgColor)
             ctx.fill(needleRect)
-        }
-    }
-    
-    private class BorderLayer: TimelineSublayer {
-        override func draw(in ctx: CGContext) {
-            super.draw(in: ctx)
-            let backgroundPath = CGMutablePath()
-            backgroundPath.addRoundedRect(
-                in: bounds,
-                cornerWidth: TimelineControl.cornerRadius,
-                cornerHeight: TimelineControl.cornerRadius)
-            
-            ctx.setStrokeColor(Colors.offBlack.cgColor)
-            ctx.setLineWidth(2)
-            ctx.addPath(backgroundPath)
-            ctx.strokePath()
         }
     }
 }
