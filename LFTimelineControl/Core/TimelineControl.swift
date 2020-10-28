@@ -27,6 +27,13 @@ public final class TimelineControl: UIControl {
             timelineLayer.divisionCount = divisionCount
         }
     }
+    
+    /// The current location indicated by the control, in bars.
+    private(set) dynamic var location: CGFloat = 0.0 {
+        didSet {
+            timelineLayer.location = location
+        }
+    }
         
     private let backgroundLayer = BackgroundLayer()
     private let timelineLayer = TimelineLayer()
@@ -35,12 +42,6 @@ public final class TimelineControl: UIControl {
     private var locationProperty: POPAnimatableProperty!
     
     private var decayAnimation: LFDecayAnimation!
-
-    private(set) dynamic var location: CGFloat = 0.0 {
-        didSet {
-            timelineLayer.location = location
-        }
-    }
         
     private var isScrubbing: Bool = false {
         didSet {
