@@ -25,6 +25,7 @@ public final class TimelineControl: UIControl {
     public dynamic var divisionCount: Int = 3 {
         didSet {
             timelineLayer.divisionCount = divisionCount
+            setNeedsDisplay()
         }
     }
     
@@ -39,10 +40,9 @@ public final class TimelineControl: UIControl {
     private let timelineLayer = TimelineLayer()
     private let needleLayer = NeedleLayer()
     
-    private var locationProperty: POPAnimatableProperty!
-    
     private var decayAnimation: LFDecayAnimation!
-        
+    private var locationProperty: POPAnimatableProperty!
+            
     private var isScrubbing: Bool = false {
         didSet {
             timelineLayer.isScrubbing = isScrubbing
@@ -151,7 +151,25 @@ public final class TimelineControl: UIControl {
         }
     }
     
-    private class TimelineSublayer: CALayer {
+    func setLocation(_ newLocation: CGFloat, animated: Bool) {
+        if animated {
+            let animation = CABasicAnimation(keyPath: #keyPath(TimelineLayer.location))
+            animation.duration = 0.1
+            animation.fromValue = location
+            animation.toValue = newLocation
+            animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+            timelineLayer.add(animation, forKey: "location")
+        }
+        
+        location = newLocation
+    }
+}
+
+// MARK: - Sublayers
+
+extension TimelineControl {
+    
+    private class Sublayer: CALayer {
         override init() {
             super.init()
             setup()
@@ -173,7 +191,7 @@ public final class TimelineControl: UIControl {
         }
     }
     
-    private class BackgroundLayer: TimelineSublayer {
+    private class BackgroundLayer: Sublayer {
         
         override func setup() {
             super.setup()
@@ -190,7 +208,7 @@ public final class TimelineControl: UIControl {
         }
     }
     
-    private class NeedleLayer: TimelineSublayer {
+    private class NeedleLayer: Sublayer {
         override func draw(in ctx: CGContext) {
             super.draw(in: ctx)
             
@@ -205,11 +223,8 @@ public final class TimelineControl: UIControl {
             ctx.fill(needleRect)
         }
     }
-}
-
-extension TimelineControl {
-    @objc
-    private class TimelineLayer: TimelineSublayer {
+    
+    private class TimelineLayer: Sublayer {
         @NSManaged fileprivate var location: CGFloat
         @NSManaged fileprivate var divisionWidth: CGFloat
         @NSManaged fileprivate var divisionCount: Int
@@ -235,7 +250,6 @@ extension TimelineControl {
         override func draw(in ctx: CGContext) {
             super.draw(in: ctx)
             
-            // Draw Major increments
             let barOffset = fmod(location, 1.0) * divisionWidth
             let centerOffset: CGFloat =
                 divisionWidth - (bounds.midX - floor(bounds.midX / divisionWidth) * divisionWidth)
@@ -291,22 +305,5 @@ extension TimelineControl {
                 barNumber += 1
             }
         }
-    }
-}
-
-// MARK: - Public
-public extension TimelineControl {
-    
-    func setLocation(_ newLocation: CGFloat, animated: Bool) {
-        if animated {
-            let animation = CABasicAnimation(keyPath: #keyPath(TimelineLayer.location))
-            animation.duration = 0.1
-            animation.fromValue = location
-            animation.toValue = newLocation
-            animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-            timelineLayer.add(animation, forKey: "location")
-        }
-        
-        location = newLocation
     }
 }
