@@ -48,21 +48,3 @@
 }
 
 @end
-
-@implementation LFDecayAnimation (NSCopying)
-
-- (instancetype)copyWithZone:(NSZone *)zone {
-  
-    LFDecayAnimation *copy = [super copyWithZone:zone];
-  
-  if (copy) {
-    // Set the velocity to the animation's original velocity, not its current.
-    copy.velocity = self.originalVelocity;
-    copy.deceleration = self.deceleration;
-    
-  }
-  
-  return copy;
-}
-
-@end
