@@ -631,7 +631,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F97326259D0D5939D64FE05 /* Pods-LFTimelineControlTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK7M84AH48;
@@ -654,7 +653,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DC5C207637FC0684510E4847 /* Pods-LFTimelineControlTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK7M84AH48;
@@ -677,7 +675,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D6DD03120DE034467FF6FAC6 /* Pods-LFTimelineControl-example-LFTimelineControlUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK7M84AH48;
 				INFOPLIST_FILE = LFTimelineControlUITests/Info.plist;
@@ -698,7 +695,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B52C4E219D604B04EFA0ADA2 /* Pods-LFTimelineControl-example-LFTimelineControlUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK7M84AH48;
 				INFOPLIST_FILE = LFTimelineControlUITests/Info.plist;
