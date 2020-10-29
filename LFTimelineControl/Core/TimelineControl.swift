@@ -29,7 +29,7 @@ public final class TimelineControl: UIControl {
     }
     
     /// The current location indicated by the control, in bars.
-    private(set) dynamic var location: CGFloat = 0.0 {
+    public private(set) dynamic var location: CGFloat = 0.0 {
         didSet {
             timelineLayer.location = location
         }
@@ -125,7 +125,9 @@ public final class TimelineControl: UIControl {
                 decayAnimation.toValue = max(0, velocity > 0.0 ? floor(toValue) : ceil(toValue))
                 decayAnimation.completionBlock = { [weak self] _, completed in
                     if completed {
-                        self?.sendActions(for: .valueChanged)
+                        guard let self = self else { return }
+                        self.setLocation(round(self.location), animated: true)
+                        self.sendActions(for: .valueChanged)
                     }
                 }
                 pop_add(decayAnimation, forKey: "decay")
@@ -293,7 +295,7 @@ extension TimelineControl {
 }
 
 // MARK: - Public
-extension TimelineControl {
+public extension TimelineControl {
     
     func setLocation(_ newLocation: CGFloat, animated: Bool) {
         if animated {
