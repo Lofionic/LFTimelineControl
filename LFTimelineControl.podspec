@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'LFTimelineControl'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Lofionic TimelineControl'
   
   s.description      = 'A control for visualizing and interacting with a location on a tempo-based timeline.'
