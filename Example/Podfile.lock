@@ -1,7 +1,7 @@
 PODS:
-  - LFTimelineControl (0.1.1):
-    - LFTimelineControl/Core (= 0.1.1)
-  - LFTimelineControl/Core (0.1.1):
+  - LFTimelineControl (0.1.2):
+    - LFTimelineControl/Core (= 0.1.2)
+  - LFTimelineControl/Core (0.1.2):
     - pop (~> 1.0.11)
   - pop (1.0.12)
 
@@ -17,9 +17,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LFTimelineControl: 9dd061fbb74ab22f73b2b39413fa8d0035abdc82
+  LFTimelineControl: f8712bf960b5695964e184030828dc1b477fc4b2
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
 PODFILE CHECKSUM: 748c141863ad6e73a4bed7f71d7396b51ded8db8
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.0
