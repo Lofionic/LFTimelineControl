@@ -12,7 +12,7 @@ The timeline is displayed with demarkations of beats and bars, bars are numbered
 
 The timeline supports inertial scrolling, and deceleration will always come to rest on a bar marker. Panning will also snap to a the closest bar marker when completed.
 
-## Dependancies
+## Installation
 LFTimelineControl is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
