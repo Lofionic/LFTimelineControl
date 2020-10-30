@@ -5,7 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/LFTimelineControl.svg?style=flat)](https://cocoapods.org/pods/LFTimelineControl)
 [![Platform](https://img.shields.io/cocoapods/p/LFTimelineControl.svg?style=flat)](https://cocoapods.org/pods/LFTimelineControl)
 
+![LFTimeline Control Screenshot](ss_1.png)
+
 ## Description
+
 LFTimelineControl is a custom UIKit control designed primarily to be used as a timeline scrubber for tempo-based audio.
 
 The timeline is displayed with demarkations of beats and bars, bars are numbered. Scrolling is infinite.
@@ -19,6 +22,8 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'LFTimelineControl'
 ```
+
+An example app is included here to demonstrate its usage. It's very simple.
 
 ## Author
 Chris Rivers, chris@lofionic.co.uk
