@@ -23,7 +23,12 @@ it, simply add the following line to your Podfile:
 pod 'LFTimelineControl'
 ```
 
-An example app is included here to demonstrate its usage. It's very simple.
+## Usage
+The current location of the control can be read using its `location` property.
+
+Add a target to the control's `UIControl.valueChanged` to observe user-initiated changes.
+
+Use the `setPostition(_:,animated: )` method to change the control's location programatically, with or without animation.
 
 ## Author
 Chris Rivers, chris@lofionic.co.uk
