@@ -34,4 +34,4 @@ Use the `setPostition(_:,animated: )` method to change the control's location pr
 Chris Rivers, chris@lofionic.co.uk
 
 ## License
-LofiUI is available under the MIT license. See the LICENSE file for more info.
+LFTimelineControl is available under the MIT license. See the LICENSE file for more info.
